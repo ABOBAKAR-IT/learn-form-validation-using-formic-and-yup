@@ -12,21 +12,41 @@ import {
   import IconButton from '@mui/material/IconButton';
   import InputAdornment from '@mui/material/InputAdornment';
    import { useState } from "react";
+   import { useFormik } from "formik";
 export default function Registration()
 {   
+  const initialValues={
+    full_name:"",
+    user_name:"",
+    phone_no:"",
+    email:"",
+    cnic:"",
+    type:"",
+    password:""
+
+  }
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+  useFormik({
+    initialValues,
+    
+    onSubmit: (values, action) => {
+    console.log(values);
+      action.resetForm();
+    },
+  });
     return (
-        <div div style={{paddingLeft:"370px",paddingTop:"50px",width:"100px"}}>
+        <div div style={{paddingLeft:"370px",paddingTop:"30px",width:"100px"}}>
             <h2>Registration</h2>
             <TextField
               id="outlined-basic"
               name="full_name"
               label="Full Name"
               variant="outlined"
-              
+              value={values.full_name}
+              onChange={handleChange}
               placeholder="RANA ABOBAKAR"
              
               required
@@ -44,7 +64,8 @@ export default function Registration()
               variant="outlined"
               placeholder="abobakar-it"
               required
-             
+              value={values.user_name}
+              onChange={handleChange}
               style={{
                 paddingBottom: "10px",
                 paddingRight: "10px",
@@ -59,7 +80,8 @@ export default function Registration()
               label="Email"
               variant="outlined"
               placeholder="example@gmail.com"
-              
+              value={values.email}
+              onChange={handleChange}
               style={{
                 paddingBottom: "10px",
                 paddingRight: "10px",
@@ -73,7 +95,8 @@ export default function Registration()
               label="Phone No"
               variant="outlined"
               placeholder="03147593927"
-         
+              value={values.phone_no}
+              onChange={handleChange}
               style={{
                 paddingBottom: "10px",
                 paddingRight: "10px",
@@ -87,6 +110,8 @@ export default function Registration()
           
               label="CNIC"
               name="cnic"
+              value={values.cnic}
+              onChange={handleChange}
               style={{
                 width: "60ch",
                 paddingRight: "10px",
@@ -104,6 +129,8 @@ export default function Registration()
               
               label="You are Farm Owner, Customer or Doctor"
               name="type"
+              value={values.type}
+              onChange={handleChange}
               style={{
                 width: "60ch",
                 paddingRight: "10px",
@@ -130,7 +157,8 @@ export default function Registration()
               variant="outlined"
               placeholder="password"
               required
-              onClick={handleClickShowPassword}
+              value={values.password}
+              onChange={handleChange}
               style={{
                 paddingBottom: "10px",
                 paddingRight: "10px",
@@ -143,7 +171,12 @@ export default function Registration()
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
+                      <IconButton
+              onClick={handleClickShowPassword}
+              >
+
                       {showPassword ? <VisibilityOff /> : <VisibilityIcon />}
+                      </IconButton>
                     
                     </InputAdornment>
                   )
@@ -154,7 +187,7 @@ export default function Registration()
             />{" "}
             <br />
             
-            <Button variant="contained" >Submit</Button>
+            <Button variant="contained" onClick={handleSubmit}>Submit</Button>
           </div>
     )
 }
