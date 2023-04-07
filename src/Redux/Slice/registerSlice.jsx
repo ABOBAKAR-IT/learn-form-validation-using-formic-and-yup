@@ -38,7 +38,7 @@ const registerSlice = createSlice({
             state.person.password = action.payload;
         },
         setData:(state,action)=>{
-          console.log(action.payload)
+         
    state.person=action.payload
         }
     

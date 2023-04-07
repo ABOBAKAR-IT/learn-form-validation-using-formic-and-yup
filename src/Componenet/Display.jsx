@@ -17,8 +17,11 @@ export default function Dispaly(){
     <Typography variant="h2">{user_name}</Typography>
     <Typography variant="h2">{email}</Typography>
     <Typography variant="h2">{cnic}</Typography>
+    <Typography variant="h2">{phone_no}</Typography>\
     <Typography variant="h2">{type}</Typography>
     <Typography variant="h2">{password}</Typography>
+    
+
 </Paper>
 </>
     )
