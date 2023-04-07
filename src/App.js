@@ -1,13 +1,14 @@
 import './App.css';
-import Counter from './Componenet/Counter';
+import Dispaly from './Componenet/Display';
+import Registration from './Componenet/Registration';
 import { useDispatch } from 'react-redux';
 function App() {
   const dispatch=useDispatch()
   return (
     <div  style={{}}>
     
-   <Counter /> 
-    
+   <Registration /> 
+   <Dispaly/> 
     </div>
   );
 }

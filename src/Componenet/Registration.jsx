@@ -13,10 +13,13 @@ import {
   import InputAdornment from '@mui/material/InputAdornment';
    import { useState } from "react"
    import { useDispatch } from "react-redux"
-   import { setFullName,setUserName,setCnic,setEmail,setPhoneNo,setType,setPassword } from "../Redux/Slice/registerSlice";
+   
+  
+   import { setFullName,setUserName,setCnic,setEmail,setPhoneNo,setType,setPassword,setData } from "../Redux/Slice/registerSlice";
    import { useFormik } from "formik";
 export default function Registration()
 {   
+  const dispatch = useDispatch();
   const initialValues={
     full_name:"",
     user_name:"",
@@ -34,8 +37,9 @@ export default function Registration()
   useFormik({
     initialValues,
     
-    onSubmit: (values, action) => {
-    console.log(values);
+    onSubmit: (values,action) => {
+ 
+    dispatch(setData(values))
       action.resetForm();
     },
   });
