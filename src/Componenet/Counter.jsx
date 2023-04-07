@@ -11,7 +11,9 @@ import {
   import VisibilityOff from '@mui/icons-material/VisibilityOff';
   import IconButton from '@mui/material/IconButton';
   import InputAdornment from '@mui/material/InputAdornment';
-   import { useState } from "react";
+   import { useState } from "react"
+   import { useDispatch } from "react-redux"
+   import { setFullName,setUserName,setCnic,setEmail,setPhoneNo,setType,setPassword } from "../Redux/Slice/registerSlice";
    import { useFormik } from "formik";
 export default function Registration()
 {   
