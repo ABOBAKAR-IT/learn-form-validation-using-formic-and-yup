@@ -45,27 +45,36 @@ export default function Registration() {
         variant="outlined"
         value={values.full_name}
         onChange={handleChange}
+     
         onBlur={handleBlur}
         placeholder="RANA ABOBAKAR"
+        // error={errors.full_name&&touched.full_name}
+        helperText={errors.full_name && touched.full_name ? (
+          <small style={{color:"red"}}>{errors.full_name}</small>
+        ) : null}
         required
         style={{
           paddingBottom: "10px",
           paddingRight: "10px",
           width: "60ch",
         }}
-        error={errors.full_name}
       />
      
       <TextField
         id="outlined-basic"
         name="user_name"
-        error={errors.user_name}
+       // error={errors.user_name&&touched.user_name}
+         helperText={errors.user_name && touched.user_name ? (
+          <small style={{color:"red"}}>{errors.user_name}</small>
+        ) : null}
+
         label="User Name"
         variant="outlined"
         placeholder="abobakar-it"
         required
         value={values.user_name}
         onChange={handleChange}
+        onBlur={handleBlur}
         style={{
           paddingBottom: "10px",
           paddingRight: "10px",
@@ -77,11 +86,15 @@ export default function Registration() {
         id="outlined-basic"
         name="email"
         label="Email"
-        error={errors.email}
+        // error={errors.email&&touched.email}
+        helperText={errors.email && touched.email ? (
+          <small style={{color:"red"}}>{errors.email}</small>
+        ) : null}
         variant="outlined"
         placeholder="example@gmail.com"
         value={values.email}
         onChange={handleChange}
+        onBlur={handleBlur}
         style={{
           paddingBottom: "10px",
           paddingRight: "10px",
@@ -92,9 +105,13 @@ export default function Registration() {
         id="outlined-basic"
         name="phone_no"
         label="Phone No"
-        error={errors.phone_no}
+        // error={errors.phone_no&&touched.phone_no}
+        helperText={errors.phone_no && touched.phone_no ? (
+          <small style={{color:"red"}}>{errors.phone_no}</small>
+        ) : null}
         variant="outlined"
         placeholder="03147593927"
+        onBlur={handleBlur}
         value={values.phone_no}
         onChange={handleChange}
         style={{
@@ -107,8 +124,14 @@ export default function Registration() {
         id="outlined-select-currency"
         label="CNIC"
         name="cnic"
-        error={errors.cnic}
+        
+        // error={errors.cnic&&touched.cnic}
+        helperText={errors.cnic && touched.cnic ? (
+          <small style={{color:"red"}}>{errors.cnic}</small>
+        ) : null}
         value={values.cnic}
+        onBlur={handleBlur}
+
         onChange={handleChange}
         style={{
           width: "60ch",
@@ -120,10 +143,16 @@ export default function Registration() {
       ></TextField>
       <TextField
         select
+        onBlur={handleBlur}
+
         id="outlined-select-currency"
         label="You are Farm Owner, Customer or Doctor"
         name="type"
-        error={errors.type}
+       // error={errors.type&&touched.type}
+       helperText={errors.type && touched.type ? (
+        <small style={{color:"red"}}>{errors.type}</small>
+      ) : null}
+   
         value={values.type}
         onChange={handleChange}
         style={{
@@ -147,8 +176,14 @@ export default function Registration() {
       <TextField
         id="outlined-basic"
         name="password"
+        onBlur={handleBlur}
+
         label="Password"
-        error={errors.password}
+       // error={errors.password&&touched.password}
+        
+       helperText={errors.password && touched.password ? (
+        <small style={{color:"red"}}>{errors.password}</small>
+      ) : null}
         variant="outlined"
         placeholder="password"
         required
